@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Milk",
+        "price": 2.99,
+        "quantity_in_stock": 50,
+        "description": "Fresh cow milk",
+        "imgsrc": ""
+    },
+    {
+        "name": "Bread",
+        "price": 1.99,
+        "quantity_in_stock": 30,
+        "description": "Whole wheat bread",
+        "imgsrc": ""
+    },
+    {
+        "name": "Eggs",
+        "price": 1.49,
+        "quantity_in_stock": 40,
+        "description": "Farm-fresh eggs",
+        "imgsrc": ""
+    },
+    {
+        "name": "Cereal",
+        "price": 3.49,
+        "quantity_in_stock": 25,
+        "description": "Healthy breakfast cereal",
+        "imgsrc": ""
+    },
+    {
+        "name": "Butter",
+        "price": 2.29,
+        "quantity_in_stock": 35,
+        "description": "Creamy butter",
+        "imgsrc": ""
+    },
+    {
+        "name": "Coffee",
+        "price": 4.99,
+        "quantity_in_stock": 15,
+        "description": "Premium coffee beans",
+        "imgsrc": ""
+    },
+    {
+        "name": "Sugar",
+        "price": 1.99,
+        "quantity_in_stock": 60,
+        "description": "Granulated sugar",
+        "imgsrc": ""
+    },
+    {
+        "name": "Pasta",
+        "price": 1.49,
+        "quantity_in_stock": 70,
+        "description": "Italian pasta",
+        "imgsrc": ""
+    },
+    {
+        "name": "Rice",
+        "price": 2.79,
+        "quantity_in_stock": 45,
+        "description": "Long-grain rice",
+        "imgsrc": ""
+    },
+    {
+        "name": "Olive Oil",
+        "price": 3.99,
+        "quantity_in_stock": 20,
+        "description": "Extra virgin olive oil",
+        "imgsrc": ""
+    }
+]

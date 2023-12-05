@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vegetabes</title>
+    <style>
+        /* Style for the header with rotating images */
+        #header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        #header h1 {
+            font-size: 36px;
+        }
+
+        #image-slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        #image-slider a {
+            flex: 1;
+        }
+
+        #image-slider img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        @keyframes slideImages {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Style for the product display */
+        #products {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style for the footer */
+        #footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #address-left, #address-right {
+            width: 50%;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            transition: all 0.3s;
+            border-bottom: 50px solid #0d0b0b;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .right {
+            float: right;
+        }
+
+        /* Style for the product container */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        /* Style for individual product */
+        .product {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .product img {
+            max-width: 100%;
+            max-height: 150px;
+        }
+
+        .product p {
+            margin: 5px 0;
+        }
+
+        /* Add any additional styling for product name, cost, and quantity in stock */
+        .add-to-basket-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #cac5c5;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 2%;
+        }
+
+        .footer h2 {
+            font-size: 24px;
+        }
+
+        .footer p {
+            font-size: 18px;
+        }
+
+        .address {
+            text-align: right;
+            padding: 0px;
+            color: #fff;
+        }
+        .right {
+            float: right;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Khyber</a>
+        <a href="nearme.html">Near me</a>
+        <a href="contact.html">Contact</a>
+        <a href="member.html">Membership</a>
+        <a class="right" href="cart.html">My Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+
+    <div id="header">
+        <img src="https://t4.ftcdn.net/jpg/02/04/22/11/360_F_204221143_wFMdSxNC7OJINVpKw50EmnhU1NFlQB2C.jpg" alt="Header Image">
+    </div>
+
+    <div id="products">
+        <h2>Vegetable Products</h2>
+        <div class="product-container">
+            <!-- Product elements will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <h2>Contact Us</h2>
+            <p>13/14 Aungier St, Dublin, D02 WC04,</p>
+            <p>Dublin, Ireland</p>
+        </div>
+        <div class="address">
+            <p>Designed by Shahid</p>
+        </div>
+    </div>
+
+    <div class="popup" id="feedback-popup">
+        <div id="feedback-message"></div>
+    </div>
+
+    <script>
+        let shoppingCart = retrieveCart();
+
+        function addToCart(productName, quantity, price) {
+        const item = {
+            name: productName,
+            quantity: quantity,
+            price: price
+            };
+            shoppingCart.push(item);
+            sessionStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+            const feedbackMessage = document.getElementById('feedback-message');
+            feedbackMessage.textContent = `${productName} has been added to your cart!`;
+            const feedbackPopup = document.getElementById('feedback-popup');
+            feedbackPopup.style.display = 'block';
+
+            setTimeout(() => {
+                feedbackPopup.style.display = 'none';
+            }, 3000); 
+        }
+
+        // Function to retrieve the cart from session storage
+        function retrieveCart() {
+            const storedCart = sessionStorage.getItem('shoppingCart');
+            if (storedCart) {
+                return JSON.parse(storedCart);
+            }
+            return [];
+        }
+    </script>
+
+    <script>
+        // Your product fetching code here (retrieving and displaying products)
+        fetch('http://localhost:5000/vegetables')  // Change the URL to your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                const productContainer = document.querySelector('.product-container');
+
+                data.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'product';
+
+                    const productImage = document.createElement('img');
+                    productImage.src = product.imgsrc;
+                    productImage.alt = product.name;
+
+                    const productName = document.createElement('p');
+                    productName.textContent = `Name: ${product.name}`;
+
+                    const productCost = document.createElement('p');
+                    productCost.textContent = `Cost: $${product.price}`;
+
+                    const quantityInStock = document.createElement('p');
+                    quantityInStock.textContent = `In Stock: ${product.quantity_in_stock} units`;
+
+                    const addToBasketButton = document.createElement('button');
+                    addToBasketButton.className = 'add-to-basket-button';
+                    addToBasketButton.textContent = 'Add to Basket';
+
+                    // Add an event listener to the "Add to Basket" button
+                    addToBasketButton.addEventListener('click', () => {
+                        addToCart (product.name, 1, product.price); // Add the product name to the cart
+                        updateCartCount(); // Update the cart count
+                    });
+
+                    productDiv.appendChild(productImage);
+                    productDiv.appendChild(productName);
+                    productDiv.appendChild(productCost);
+                    productDiv.appendChild(quantityInStock);
+                    productDiv.appendChild(addToBasketButton);
+                    productContainer.appendChild(productDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching product data: ', error);
+            });
+
+        // Function to update the cart count on the My Cart link
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = shoppingCart.length;
+        }
+
+        // Initial call to update cart count
+        updateCartCount();
+    </script>
+</body>
+</html>

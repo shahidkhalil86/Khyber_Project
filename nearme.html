@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Maps</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-bottom: 50px solid #000000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 16px;
+            display: inline-block;
+        }
+
+        #map-box {
+            padding: 20px;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px; /* Adjust the map height as needed */
+        }
+        .right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Khyber</a>
+        <a href="nearme.html">Near me</a>
+        <a href="contact.html">Contact</a>
+        <a href="member.html">Membership</a>
+        <a class="right" href="cart.html">My Cart</a>
+    </nav>
+
+    <div id="map-box">
+        <div id="map"></div>
+    </div>
+
+    <script>
+        var map = L.map('map');
+        var coordinates = [
+            [53.34054044372485, -6.26549186799072],
+            [53.34342064836152, -6.264578981459703],
+            [53.72739891593513, -6.878128260464679]
+        ];
+    
+        map.fitBounds(coordinates);
+    
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        L.marker(coordinates[0]).addTo(map)
+            .bindPopup('First location');
+        
+        L.marker(coordinates[1]).addTo(map)
+            .bindPopup('Second location');
+        L.marker(coordinates[2]).addTo(map)
+            .bindPopup('third location');
+
+    </script>
+    
+</body>
+</html>

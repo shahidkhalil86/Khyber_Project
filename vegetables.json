@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Carrots",
+        "category": "Root Vegetables",
+        "price": 1.49,
+        "quantity_in_stock": 20,
+        "description": "Fresh organic carrots",
+        "imgsrc": ""
+    },
+    {
+        "name": "Tomatoes",
+        "category": "Fruits",
+        "price": 2.49,
+        "quantity_in_stock": 40,
+        "description": "Ripe red tomatoes",
+        "imgsrc": ""
+    },
+    {
+        "name": "Broccoli",
+        "category": "Cruciferous Vegetables",
+        "price": 1.99,
+        "quantity_in_stock": 15,
+        "description": "Nutrient-rich broccoli",
+        "imgsrc": ""
+    },
+    {
+        "name": "Spinach",
+        "category": "Leafy Greens",
+        "price": 2.29,
+        "quantity_in_stock": 25,
+        "description": "Fresh spinach leaves",
+        "imgsrc": ""
+    },
+    {
+        "name": "Bell Peppers",
+        "category": "Peppers",
+        "price": 2.99,
+        "quantity_in_stock": 30,
+        "description": "Colorful bell peppers",
+        "imgsrc": ""
+    },
+    {
+        "name": "Cucumbers",
+        "category": "Cucumbers",
+        "price": 1.79,
+        "quantity_in_stock": 18,
+        "description": "Crunchy cucumbers",
+        "imgsrc": ""
+    },
+    {
+        "name": "Potatoes",
+        "category": "Tubers",
+        "price": 1.49,
+        "quantity_in_stock": 22,
+        "description": "Versatile potatoes",
+        "imgsrc": ""
+    },
+    {
+        "name": "Onions",
+        "category": "Onions",
+        "price": 1.29,
+        "quantity_in_stock": 27,
+        "description": "Common onions",
+        "imgsrc": ""
+    },
+    {
+        "name": "Garlic",
+        "category": "Herbs and Spices",
+        "price": 1.99,
+        "quantity_in_stock": 12,
+        "description": "Flavorful garlic bulbs",
+        "imgsrc": ""
+    },
+    {
+        "name": "Lettuce",
+        "category": "Leafy Greens",
+        "price": 2.49,
+        "quantity_in_stock": 18,
+        "description": "Crisp lettuce leaves",
+        "imgsrc": ""
+    }
+]

@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Apples",
+        "category": "Apples",
+        "price": 1.99,
+        "quantity_in_stock": 25,
+        "description": "Fresh green apples",
+        "imgsrc": ""
+    },
+    {
+        "name": "Bananas",
+        "category": "Bananas",
+        "price": 0.99,
+        "quantity_in_stock": 60,
+        "description": "Ripe yellow bananas",
+        "imgsrc": ""
+    },
+    {
+        "name": "Oranges",
+        "category": "Citrus Fruits",
+        "price": 2.49,
+        "quantity_in_stock": 35,
+        "description": "Sweet oranges",
+        "imgsrc": ""
+    },
+    {
+        "name": "Grapes",
+        "category": "Berries",
+        "price": 3.49,
+        "quantity_in_stock": 30,
+        "description": "Juicy grapes",
+        "imgsrc": ""
+    },
+    {
+        "name": "Strawberries",
+        "category": "Berries",
+        "price": 2.99,
+        "quantity_in_stock": 20,
+        "description": "Ripe strawberries",
+        "imgsrc": ""
+    },
+    {
+        "name": "Pineapples",
+        "category": "Tropical Fruits",
+        "price": 3.99,
+        "quantity_in_stock": 15,
+        "description": "Fresh pineapples",
+        "imgsrc": ""
+    },
+    {
+        "name": "Blueberries",
+        "category": "Berries",
+        "price": 4.99,
+        "quantity_in_stock": 22,
+        "description": "Plump blueberries",
+        "imgsrc": ""
+    },
+    {
+        "name": "Watermelons",
+        "category": "Melons",
+        "price": 3.79,
+        "quantity_in_stock": 17,
+        "description": "Sweet watermelons",
+        "imgsrc": ""
+    },
+    {
+        "name": "Mangoes",
+        "category": "Tropical Fruits"
+    }    
+]
