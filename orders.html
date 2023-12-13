@@ -78,7 +78,7 @@
         // Function to fetch orders from the API
         async function fetchOrders() {
             try {
-                const response = await fetch('http://localhost:5000/api/orders'); // Replace with your actual API endpoint
+                const response = await fetch('http://localhost:5000/api/orders'); 
                 const orders = await response.json();
                 displayOrders(orders);
             } catch (error) {

@@ -5,7 +5,7 @@ from bson import ObjectId
 vegetables_bp = Blueprint('vegetables', __name__)
 
 # MongoDB Configuration
-mongo = MongoClient('mongodb://localhost:27017/khyber')
+mongo = MongoClient('mongodb+srv://shahid:Password123@cluster0.46rjimq.mongodb.net/khyber?authMechanism=DEFAULT')
 db = mongo.get_database()
 
 @vegetables_bp.route('/vegetables', methods=['GET'])

@@ -1,11 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Flask, Blueprint, request, jsonify
 from pymongo import MongoClient
 from bson import ObjectId
+from flask_pymongo import PyMongo
 
 fruits_bp = Blueprint('fruits', __name__)
 
 # MongoDB Configuration
-mongo = MongoClient('mongodb://localhost:27017/khyber')
+mongo = MongoClient('mongodb+srv://shahid:Password123@cluster0.46rjimq.mongodb.net/khyber?authMechanism=DEFAULT')
 db = mongo.get_database()
 
 @fruits_bp.route('/fruits', methods=['GET'])
@@ -84,3 +85,9 @@ def delete_fruit(fruit_id):
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+app = Flask(__name__)
+app.register_blueprint(fruits_bp)
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -4,7 +4,7 @@ from pymongo import MongoClient
 orders_bp = Blueprint('orders', __name__)
 
 # MongoDB Configuration
-mongo = MongoClient('mongodb://localhost:27017/khyber')
+mongo = MongoClient('mongodb+srv://shahid:Password123@cluster0.46rjimq.mongodb.net/khyber?authMechanism=DEFAULT')
 db = mongo.get_database()
 
 @orders_bp.route('/api/orders', methods=['GET', 'POST'])
